@@ -1,7 +1,9 @@
 defmodule PingPong do
+  @finish_game 11
+
   def ready do
     receive do
-      {sender, action, 11} ->
+      {sender, action, @finish_game} ->
         IO.puts "And #{inspect sender} wins with a final #{inspect action} on round {11}"
         ready
 
@@ -30,7 +32,10 @@ defmodule PingPong do
 end
 
 player_1 = self
-player_2 = spawn(PingPong, :ready, [])
+player_2 =
+  PingPong
+  |> Task.start(:ready, [])
+  |> elem(1)
 
 IO.puts "1st_player: #{inspect player_1}"
 IO.puts "2nd_player: #{inspect player_2}"
