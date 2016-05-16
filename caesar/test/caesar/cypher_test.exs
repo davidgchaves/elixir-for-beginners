@@ -4,7 +4,7 @@ defmodule Caesar.CypherTest do
 
   import Caesar.Cypher
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "encrypt shifts cipher mapping" do
+    assert encrypt("abcd", 1) == "zabc"
   end
 end
