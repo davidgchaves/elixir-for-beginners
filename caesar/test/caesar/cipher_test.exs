@@ -1,8 +1,8 @@
-defmodule Caesar.CypherTest do
+defmodule Caesar.CipherTest do
   use ExUnit.Case
-  doctest Caesar.Cypher
+  doctest Caesar.Cipher
 
-  import Caesar.Cypher
+  import Caesar.Cipher
 
   test "encrypt shifts cipher mapping" do
     assert encrypt("abcd", 1) == "zabc"

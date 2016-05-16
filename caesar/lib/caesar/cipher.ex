@@ -1,4 +1,4 @@
-defmodule Caesar.Cypher do
+defmodule Caesar.Cipher do
   def encrypt(msg, shift) do
     msg
     |> to_char_list
