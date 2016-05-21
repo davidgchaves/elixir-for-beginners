@@ -11,6 +11,7 @@ use Mix.Config
 # You can configure for your application as:
 #
 #     config :caesar, key: :value
+config :caesar, alphabet_size: 26
 #
 # And access this configuration in your application as:
 #

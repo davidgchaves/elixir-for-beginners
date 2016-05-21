@@ -1,5 +1,5 @@
 defmodule Caesar.Cipher do
-  @alphabet_size 26
+  @alphabet_size Application.get_env(:caesar, :alphabet_size)
 
   def encrypt(msg, shift) do
     msg
