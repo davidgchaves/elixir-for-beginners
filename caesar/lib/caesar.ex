@@ -8,8 +8,9 @@ defmodule Caesar do
   def parse_args(argv) do
     parse = OptionParser.parse(argv, switches: [help: :boolean])
     case parse do
-      {[help: true], _, _} -> {:help}
-      {_           , _, _} -> {:help}
+      {[help: true]  , _               , _} -> {:help}
+      {[shift: shift], ["encrypt", msg], _} -> {:encrypt, msg, shift |> String.to_integer}
+      {_             , _               , _} -> {:help}
     end
   end
 end
