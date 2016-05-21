@@ -6,4 +6,9 @@ defmodule CaesarTest do
     argv = ["UnkNOWn"]
     assert Caesar.parse_args(argv) == {:help}
   end
+
+  test "parse_args help" do
+    argv = ["help"]
+    assert Caesar.parse_args(argv) == {:help}
+  end
 end

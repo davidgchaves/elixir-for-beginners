@@ -6,9 +6,10 @@ defmodule Caesar do
   end
 
   def parse_args(argv) do
-    parse = OptionParser.parse(argv)
+    parse = OptionParser.parse(argv, switches: [help: :boolean])
     case parse do
-      {_ , _, _} -> {:help}
+      {[help: true], _, _} -> {:help}
+      {_           , _, _} -> {:help}
     end
   end
 end
