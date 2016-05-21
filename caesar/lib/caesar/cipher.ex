@@ -1,4 +1,6 @@
 defmodule Caesar.Cipher do
+  @alphabet_size 26
+
   def encrypt(msg, shift) do
     msg
     |> to_char_list
@@ -15,9 +17,9 @@ defmodule Caesar.Cipher do
   end
 
   defp calculate_mapping(base_letter, char, shift) do
-    normalize = &(&1 - 26)
-    shift_num = rem(shift, 26)
+    normalize = &(&1 - @alphabet_size)
+    shift_num = rem(shift, @alphabet_size)
 
-    base_letter + rem(char - normalize.(base_letter) - shift_num, 26)
+    base_letter + rem(char - normalize.(base_letter) - shift_num, @alphabet_size)
   end
 end
