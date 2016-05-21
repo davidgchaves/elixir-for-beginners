@@ -1,11 +1,15 @@
 defmodule Caesar.Cipher do
+  require Logger
+
   @alphabet_size Application.get_env(:caesar, :alphabet_size)
 
   def encrypt(msg, shift) do
+    Logger.debug "encrypting \"#{msg}\" with a shift number of: #{shift}"
+
     msg
-    |> to_char_list
-    |> Enum.map(&shift_char(&1, shift))
-    |> List.to_string
+      |> to_char_list
+      |> Enum.map(&shift_char(&1, shift))
+      |> List.to_string
   end
 
   defp shift_char(char, shift) do
